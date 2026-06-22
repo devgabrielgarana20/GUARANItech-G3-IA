@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, maximum-scale=1.0">
+    <meta name="theme-color" content="#6c5ce7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="G3 AI">
+    <meta name="description" content="G3 AI - Assistente Educacional com Sistema Anti-Trapaça">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712035.png">
+    <title>G3 AI  - Assistente Educacional</title>
+    
+    <!-- Fontes e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100;14..32,200;14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Bibliotecas -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Header Mobile -->
+        <div class="header">
+            <div class="logo-area">
+                <button class="menu-btn" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+             <div class="logo-icon" style="background: none; padding: 0; overflow: hidden;">
+                <img src="soon-ia.png" alt="logo of ai" style="width: 100%; height: 100%; object-fit: contain;">                  
+             </div>
+                <div class="logo-text">
+                    <h1>G3 AI</h1>
+                    <span>Guarani-3</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="edu-badge">
+                    <i class="fas fa-shield-alt"></i> Anti-Trapaça
+                </span>
+                <button class="icon-btn" id="settingsBtn">
+                    <i class="fas fa-sliders-h"></i>
+                </button>
+                <button class="icon-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="quick-btn" data-query="Me ensine sobre frações"> Frações</button>
+            <button class="quick-btn" data-query="Explique a Revolução Francesa"> História</button>
+            <button class="quick-btn" data-query="Como fazer uma redação"> Redação</button>
+            <button class="quick-btn" data-query="Me ensine equações"> Equações</button>
+            <button class="quick-btn" data-query="Dicas de estudo"> Estudo</button>
+            <button class="quick-btn" data-query="Me ensine português"> português</button>
+            <button class="quick-btn" data-query="Me ensine sobre filosfia"> Filosofia</button>
+            <button class="quick-btn" data-query="Dica de memorização">Dica de memorização</button>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-area" id="messagesArea">
+            <div class="messages" id="messages"></div>
+            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span>G3 AI está ensinando...</span>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-container">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Pergunte algo para aprender..."
+                    rows="1"
+                ></textarea>
+                <button class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span id="statusText">🎓 Modo Tutor Ativo</span>
+                <span><i class="fas fa-chart-line"></i> <span id="tokenCount">0</span> tokens</span>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar";">
+            <div class="sidebar-header">
+                <div class="logo-icon-transparent" style="background: none; padding: 0%; overflow: hidden;">               
+                    <img src="soon-transparent.png" alt="logo-ai" style="width: 100%; height: 100%; object-fit: contain;" >
+                </div>
+                <h2>G3 AI </h2>
+                <p>Assistente Educacional v1.0.0</p>
+                <button class="new-chat-sidebar" id="newChatSidebarBtn">
+                    <i class="fas fa-plus"></i> Nova Conversa
+                </button>
+            </div>
+            <div class="conversations-list" id="conversationsList"></div>
+            
+            <!-- Developer Credits -->
+            <div class="developer-section">
+                <div style="margin-bottom: 10px;">
+                    <i class="fas fa-code" style="color: var(--primary);"></i>
+                </div>
+                <div class="developer-name">GABRIEL-DEV</div>
+                <div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 6px;">
+                    Desenvolvedor Principal
+                </div>
+                <a href="https://www.instagram.com/gb_zim17" target="_blank" class="social-link">
+                    <i class="fab fa-instagram" style="color: #e4405f;"></i>
+                    @gb_zim17
+                </a>
+                <div style="margin-top: 12px; font-size: 9px; color: var(--text-tertiary);">
+                    <i class="fas fa-copyright"></i> 2026 G3 AI - Modo Educacional
+                </div>
+                <div style="font-size: 8px; margin-top: 6px;">
+                    Versão 1.0.0 | Anti-Trapaça Ativo
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Bottom Sheet Settings -->
+        <div class="bottom-sheet" id="bottomSheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-content">
+                <h3 style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+                    <i class="fas fa-cog"></i> Configurações
+                </h3>
+                
+                <div class="setting-group">
+                    <label class="setting-label">Modelo de IA</label>
+                    <select id="modelSelect" class="setting-control">
+                        <option value="gpt-4o-mini">GPT-4o Mini (Rápido)</option>
+                        <option value="gpt-4o">GPT-4o (Recomendado)</option>
+                        <option value="claude-3-haiku">Claude 3 Haiku</option>
+                        <option value="gemini-pro">Gemini Pro</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Temperatura: <span id="tempValue">0.7</span></label>
+                    <input type="range" id="temperatureSlider" min="0" max="2" step="0.1" value="0.7" style="width: 100%;">
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Tema</label>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="theme-btn" data-theme="dark" style="flex:1; padding: 8px; background: var(--bg-tertiary); border: none; border-radius: 8px; cursor: pointer;">🌙 Dark</button>
+                        <button class="theme-btn" data-theme="light" style="flex:1; padding: 8px; background: var(--bg-tertiary); border: none; border-radius: 8px; cursor: pointer;">☀️ Light</button>
+                        <button class="theme-btn" data-theme="amoled" style="flex:1; padding: 8px; background: var(--bg-tertiary); border: none; border-radius: 8px; cursor: pointer;">⚫ AMOLED</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">🔒 Sistema Anti-Trapaça</label>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 10px; font-size: 12px;">
+                        <div>✅ Bloqueio de perguntas de prova: <strong>ATIVADO</strong></div>
+                        <div>✅ Modo Tutor: <strong>ATIVADO</strong></div>
+                        <div>✅ Registro de tentativas: <strong>ATIVADO</strong></div>
+                        <div style="margin-top: 8px; font-size: 11px; color: var(--text-secondary);">
+                            <i class="fas fa-info-circle"></i> Tentativas de cola são bloqueadas e registradas
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Estatísticas</label>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 10px; font-size: 12px;">
+                        <div>📊 Mensagens: <strong id="statMessages">0</strong></div>
+                        <div>🔄 Trocas: <strong id="statExchanges">0</strong></div>
+                        <div>🎫 Tokens: <strong id="statTokens">0</strong></div>
+                        <div>🚫 Tentativas bloqueadas: <strong id="statBlocked">0</strong></div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Sobre o App</label>
+                    <div style="background: var(--bg-tertiary); padding: 30px; border-radius: 10px; text-align: center;">
+                        <i class="fas fa-graduation-cap" style="font-size: 28px; color: var(--primary);"></i>
+                        <h4 style="margin: 6px 0; font-size: 16px;">G3 AI </h4>
+                        <p style="font-size: 11px; color: var(--text-secondary);">
+                            Assistente educacional com sistema anti-trapaça.<br>
+                            Desenvolvido por GUARANI-DEV
+                        </p>
+                        <hr style="margin: 10px 0; border-color: var(--border);">
+                        <p style="font-size: 10px;">
+                            <i class="fab fa-instagram"></i> @gb_zim17<br>
+                            <i class="fas fa-code"></i> Versão 1.0.0
+                        </p>
+                    </div>
+                </div>
+
+                <button id="closeSheetBtn" style="width: 100%; padding: 12px; margin-top: 16px; background: var(--primary); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer;">
+                    Fechar
+                </button>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div id="toast" class="toast" style="display: none;"></div>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "G3 AI PRO Mobile",
+  "short_name": "G3 AI",
+  "description": "Assistente Inteligente Avançado com IA - Desenvolvido por DEVgabriel",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#6c5ce7",
+  "background_color": "#0a0a1a",
+  "orientation": "portrait",
+  "categories": ["productivity", "education", "utilities"],
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova Conversa",
+      "short_name": "Nova",
+      "description": "Iniciar nova conversa",
+      "url": "/",
+      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/4712/4712035.png", "sizes": "192x192" }]
+    }
+  ]
+}
