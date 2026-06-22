@@ -1,6 +1,6 @@
 // ===================== CONFIGURAÇÕES =====================
 const CONFIG = {
-    apiKey: "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",
+    apiKey: "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",
     model: "gpt-4o-mini",
     maxTokens: 1500,
     temperature: 0.7,
