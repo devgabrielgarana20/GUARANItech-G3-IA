@@ -7,7 +7,7 @@
 
 :root {
     /* Cores Premium */
-    --primary: #0d0da1;
+    --primary: #0b0861;
     --primary-dark: #5b4bc4;
     --primary-light: #8b7cf7;
     --secondary: #0d0da1;
@@ -90,13 +90,13 @@ body {
 /* Header Premium Mobile */
 .header {
     background: var(--bg-secondary);
-    padding: 12px 16px;
+    padding: 5px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--border);
     backdrop-filter: blur(10px);
-    z-index: 10;
+    z-index: 1;
 }
 
 .logo-area {
@@ -366,9 +366,9 @@ body {
 /* Input Area */
 .input-area {
     background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
-    padding: 10px 16px;
-    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    border-top: -1px solid var(--border);
+    padding: -10px 16px;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
 }
 
 .input-container {
@@ -644,4 +644,4 @@ body {
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 3px;
-}
+    }
