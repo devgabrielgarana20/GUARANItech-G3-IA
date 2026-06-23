@@ -7,10 +7,10 @@
 
 :root {
     /* Cores Premium */
-    --primary: #0b0861;
+    --primary: #031087;
     --primary-dark: #5b4bc4;
     --primary-light: #8b7cf7;
-    --secondary: #0d0da1;
+    --secondary: #031087;
     --accent: #2fff00;
     --success: #00b894;
     --warning: #fdcb6e;
@@ -90,19 +90,19 @@ body {
 /* Header Premium Mobile */
 .header {
     background: var(--bg-secondary);
-    padding: 5px 16px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--border);
     backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 10;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .menu-btn {
@@ -120,8 +120,8 @@ body {
 }
 
 .logo-icon {
-    width: 38px;
-    height: 48px;
+    width: 60px;
+    height: 50px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border-radius: 10px;
     display: flex;
@@ -130,30 +130,19 @@ body {
     font-size: 20px;
 }
 
-.logo-icon-transparent{
-    width:80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-}
-
 .logo-text h1 {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .logo-text span {
-    font-size: 11px;
+    font-size: 14px;
     color: var(--text-secondary);
 }
 
 .header-actions {
     display: flex;
-    gap: 6px;
+    gap: 30px;
 }
 
 .icon-btn {
@@ -174,11 +163,11 @@ body {
 .edu-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: var(--edu-badge);
-    border-radius: 20px;
-    font-size: 10px;
+    gap: 2px;
+    padding: 1px 10px;
+    background: #000000ff;
+    border-radius: 8px;
+    font-size: 12px;
     font-weight: 600;
     color: white;
 }
@@ -190,8 +179,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .warning-banner i {
@@ -258,7 +247,7 @@ body {
 .message-avatar {
     width: 32px;
     height: 32px;
-    border-radius: 10px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,6 +274,7 @@ body {
 .message-bubble {
     padding: 10px 25px;
     border-radius: 16px;
+    color: white;
 }
 
 .message.user .message-bubble {
@@ -366,9 +356,9 @@ body {
 /* Input Area */
 .input-area {
     background: var(--bg-secondary);
-    border-top: -1px solid var(--border);
-    padding: -10px 16px;
-    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
 }
 
 .input-container {
@@ -442,7 +432,7 @@ body {
 }
 
 .sidebar-header h2 {
-    color: aliceblueblue;
+    color: white;
     margin-top: 10px;
     font-size: 18px;
 }
@@ -644,4 +634,4 @@ body {
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 3px;
-    }
+}

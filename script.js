@@ -1,6 +1,6 @@
 // ===================== CONFIGURAÇÕES =====================
 const CONFIG = {
-    apiKey: "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",
+    apiKey: "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",
     model: "gpt-4o-mini",
     maxTokens: 1500,
     temperature: 0.7,
@@ -144,7 +144,7 @@ Em vez de te dar a resposta direta, vou te ajudar a entender o conceito.
 
 **Me mostre sua tentativa e vamos corrigir juntos!**`,
             
-            `# 📚 **Modo Tutor Ativado!**
+            `#  **Modo Tutor Ativado!**
 
 ✨ **Não vou te dar a resposta pronta, mas vou te ensinar a chegar até ela:**
 
@@ -199,7 +199,7 @@ Faça um exercício similar
         
         response += `\n\n⚠️ **Lembre-se:** O objetivo é aprender, não copiar.`;
         
-        return response;
+        return response;n
     },
     
     // ===== REGISTRAR TENTATIVA =====
@@ -290,7 +290,7 @@ function saveData() {
 function createWelcomeConversation() {
     const welcomeMessage = `# 🎓 **Bem-vindo ao G3 AI EDU!**
 
-## 📚 **Assistente Educacional com Sistema Anti-Trapaça**
+##  **Assistente Educacional com Sistema Anti-Trapaça**
 
 ### 🎯 **Como posso te ajudar a aprender:**
 
@@ -343,7 +343,7 @@ function createWelcomeConversation() {
 function createNewConversation() {
     const newConversation = {
         id: generateId(),
-        title: `📚 Conversa ${new Date().toLocaleDateString()}`,
+        title: ` Conversa ${new Date().toLocaleDateString()}`,
         createdAt: new Date().toISOString(),
         messages: []
     };
